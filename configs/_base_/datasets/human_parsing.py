@@ -9,7 +9,7 @@ train_pipeline = [
     dict(type='LoadAnnotations', reduce_zero_label=False),
     dict(type='Resize', img_scale=(1024, 1024), ratio_range=(0.5, 2.0)),
     dict(type='RandomCrop', crop_size=crop_size, cat_max_ratio=0.75),
-    dict(type='RandomFlip', prob=0),
+    dict(type='RandomFlip_for_Human_Parsing', prob=0.5),
     dict(type='PhotoMetricDistortion'),
     dict(type='Normalize', **img_norm_cfg),
     dict(type='Pad', size=crop_size, pad_val=0, seg_pad_val=255),
@@ -40,6 +40,8 @@ data = dict(
         img_dir='119/',
         ann_dir='119/',
         split=None,
+        auto_split=(5, 1),
+        auto_mode='train',
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
@@ -47,6 +49,8 @@ data = dict(
         img_dir='119/',
         ann_dir='119/',
         split=None,
+        auto_split=(5, 1),
+        auto_mode='val',
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
@@ -54,4 +58,6 @@ data = dict(
         img_dir='119/',
         ann_dir='119/',
         split=None,
+        auto_split=(5, 1),
+        auto_mode='train',
         pipeline=test_pipeline))
