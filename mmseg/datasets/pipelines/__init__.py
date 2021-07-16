@@ -4,7 +4,7 @@ from .formating import (Collect, ImageToTensor, ToDataContainer, ToTensor,
 from .loading import LoadAnnotations, LoadImageFromFile
 from .test_time_aug import MultiScaleFlipAug
 from .transforms import (CLAHE, AdjustGamma, Normalize, Pad,
-                         PhotoMetricDistortion, RandomCrop, RandomFlip,
+                         PhotoMetricDistortion, RandomCrop, RandomFlip, RandomFlip_for_Human_Parsing,
                          RandomRotate, Rerange, Resize, RGB2Gray, SegRescale)
 
 __all__ = [
@@ -12,5 +12,5 @@ __all__ = [
     'Transpose', 'Collect', 'LoadAnnotations', 'LoadImageFromFile',
     'MultiScaleFlipAug', 'Resize', 'RandomFlip', 'Pad', 'RandomCrop',
     'Normalize', 'SegRescale', 'PhotoMetricDistortion', 'RandomRotate',
-    'AdjustGamma', 'CLAHE', 'Rerange', 'RGB2Gray'
+    'AdjustGamma', 'CLAHE', 'Rerange', 'RGB2Gray', 'RandomFlip_for_Human_Parsing'
 ]
